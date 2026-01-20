@@ -1,5 +1,5 @@
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import MarkerCluster from "./components/marker-cluster/MarkerCluster";
+import MarkerCluster from "../marker-cluster/MarkerCluster";
 interface IMark {
   name: string;
   lat: number;
@@ -9,7 +9,7 @@ interface IMark {
 const Map = ({ data }: { data: IMark[] }) => {
   return (
     <MapContainer
-      center={[51.505, -0.09]}
+      center={[38.34, -0.5]}
       zoom={13}
       style={{ height: "100vh", width: "100%" }}
     >
@@ -19,7 +19,7 @@ const Map = ({ data }: { data: IMark[] }) => {
       />
 
       <MarkerCluster data={data} />
-      <Marker position={[51.505, -0.09]}>
+      <Marker position={[38.34, -0.5]}>
         <Popup>Center</Popup>
       </Marker>
     </MapContainer>

@@ -6,14 +6,20 @@ interface IProps {
 const Finder = ({ onSubmit }: IProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   return (
-    <div className={styles.finder}>
+    <form
+      className={styles.finder}
+      onSubmit={(e) => {
+        e.preventDefault();
+        onSubmit(inputRef.current?.value.trim()!);
+      }}
+    >
       <input
         ref={inputRef}
         type="text"
         placeholder="Find person with same interests"
       />
-      <button onClick={() => onSubmit(inputRef.current?.value!)}>Search</button>
-    </div>
+      <button type="submit">Search</button>
+    </form>
   );
 };
 

@@ -16,13 +16,12 @@ function App() {
       ),
     );
   }, [query]);
-  console.log("query :>> ", query);
-  console.log("filteredData :>> ", filteredData);
+
   return (
     <>
       <Finder onSubmit={setQuery} />
       <MapContainer
-        center={[51.505, -0.09]}
+        center={[38.34, -0.5]}
         zoom={13}
         style={{ height: "100vh", width: "100%" }}
       >
@@ -32,7 +31,7 @@ function App() {
         />
 
         <MarkerCluster data={filteredData} />
-        <Marker position={[51.505, -0.09]}>
+        <Marker position={[38.34, -0.5]}>
           <Popup>Center</Popup>
         </Marker>
       </MapContainer>
