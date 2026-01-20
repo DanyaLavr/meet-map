@@ -1,5 +1,6 @@
 .finder {
   display: flex;
+  flex-direction: column;
   position: absolute;
   left: 20px;
   right: 20px;
@@ -11,7 +12,9 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 12px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-
+  @media (min-width: 450px) {
+    flex-direction: row;
+  }
   input {
     flex: 1;
     background: transparent;
