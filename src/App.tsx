@@ -7,6 +7,9 @@ import MarkerCluster from "./components/marker-cluster/MarkerCluster";
 import { useMemo, useState } from "react";
 import Finder from "./components/finder/Finder";
 
+import markerIconPng from "leaflet/dist/images/marker-icon.png";
+import { Icon } from "leaflet";
+
 function App() {
   const [query, setQuery] = useState("");
   const filteredData = useMemo(() => {
@@ -29,9 +32,18 @@ function App() {
           attribution="&copy; OpenStreetMap contributors"
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-
         <MarkerCluster data={filteredData} />
-        <Marker position={[38.34, -0.5]}>
+
+        <Marker
+          position={[38.34, -0.5]}
+          icon={
+            new Icon({
+              iconUrl: markerIconPng,
+              iconSize: [25, 41],
+              iconAnchor: [12, 41],
+            })
+          }
+        >
           <Popup>Center</Popup>
         </Marker>
       </MapContainer>
