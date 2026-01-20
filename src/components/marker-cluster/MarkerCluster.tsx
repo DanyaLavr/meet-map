@@ -2,6 +2,8 @@ import { useMap } from "react-leaflet";
 import { useEffect } from "react";
 import L from "leaflet";
 import "leaflet.markercluster";
+import markerIconPng from "leaflet/dist/images/marker-icon.png";
+import { Icon } from "leaflet";
 
 interface IProps {
   data: { lat: number; lon: number; name: string; interests: string[] }[];
@@ -30,9 +32,14 @@ const MarkerCluster = ({ data }: IProps) => {
       //   showCoverageOnHover: false,
       //   zoomToBoundsOnClick: false,
     });
+    const icon = new Icon({
+      iconUrl: markerIconPng,
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+    });
 
     data.forEach((elem) => {
-      const marker = L.marker([elem.lat, elem.lon]);
+      const marker = L.marker([elem.lat, elem.lon], { icon });
 
       marker.bindPopup(`
         <div>
